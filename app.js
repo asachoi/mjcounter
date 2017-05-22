@@ -6,6 +6,8 @@ var mongoose = require("mongoose");
 var db = mongoose.connect(process.env.MONGODB_URI);
 var Movie = require("./models/movie");
 
+var id;
+
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -19,6 +21,8 @@ app.get("/", function (req, res) {
 // Facebook Webhook
 // Used for verification
 app.get("/webhook", function (req, res) {
+
+
     if (req.query["hub.verify_token"] === process.env.VERIFICATION_TOKEN) {
         console.log("Verified webhook");
         res.status(200).send(req.query["hub.challenge"]);
@@ -30,6 +34,12 @@ app.get("/webhook", function (req, res) {
 
 // All callbacks for Messenger will be POST-ed here
 app.post("/webhook", function (req, res) {
+    if(id == null) {
+        id = guid()
+    }
+
+    console.log("ID:" + id)
+
     // Make sure this is a page subscription
     if (req.body.object == "page") {
         // Iterate over each entry
@@ -203,4 +213,15 @@ function sendMessage(recipientId, message) {
             console.log("Error sending message: " + response.error);
         }
     });
+}
+
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
 }
