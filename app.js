@@ -60,9 +60,7 @@ function processMessage(event) {
         count ++;
 
         //sendMessage(senderId, {text: "Welcome " + message.text + count});
-        if(gameStart) {
-            sendReply(senderId, players, 'winner')
-        }
+
 
 
 
@@ -105,11 +103,15 @@ function processMessage(event) {
                 case "players":
                     //sendReply(senderId, formattedMsg.split(" "))
                     setPlayers(formattedMsg)
+                    sendMessage(senderId, "players: " + players.join(','))
+
                     break
                 case "result":
                     showResult(senderId)
                     break
-                case "end":
+                case "log":
+                    sendReply(senderId, players, 'winner')
+                    break;
                 default:
                     //findMovie(senderId, formattedMsg);
             }
