@@ -93,6 +93,7 @@ function processMessage(event) {
 
                 if(type == 'loser') {
                     game.loser = value
+                    console.log(JSON.stringify(game))
                     sendMessage(senderId,  JSON.stringify(game))
                 }
             }
