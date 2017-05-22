@@ -11,6 +11,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.listen((process.env.PORT || 5000));
 
+var count = 0;
+
 // Server index page
 app.get("/", function (req, res) {
     res.send("Deployed!");
@@ -91,7 +93,9 @@ function processMessage(event) {
 
         sendTemplate(senderId, {text: "Testing Template"});
 
-        sendMessage(senderId, {text: "Welcome " + message.text});
+        count ++;
+
+        sendMessage(senderId, {text: "Welcome " + message.text + count});
 
         console.log("Received message from senderId: " + senderId);
         console.log("Message is: " + JSON.stringify(message));
