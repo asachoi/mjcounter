@@ -56,6 +56,10 @@ function processPostback(event) {
     if (payload === "Greeting") {
         // Get user's first name from the User Profile API
         // and include it in the greeting
+
+        console.log("Received postback from senderId: " + senderId);
+        console.log("Message is: " + JSON.stringify(event));
+
         request({
             url: "https://graph.facebook.com/v2.6/" + senderId,
             qs: {
