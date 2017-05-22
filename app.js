@@ -90,7 +90,7 @@ function processMessage(event) {
         var senderId = event.sender.id;
 
         sendTemplate(senderId, {text: "Testing Template"});
-        
+
         sendMessage(senderId, {text: "Welcome " + message.text});
 
         console.log("Received message from senderId: " + senderId);
@@ -168,6 +168,8 @@ function sendTemplate(recipientId, message) {
         }
       }
     }
+
+    console.log(JSON.stringify(template))
 
     request({
         url: "https://graph.facebook.com/v2.6/me/messages",
