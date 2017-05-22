@@ -148,35 +148,39 @@ function sendMessage(recipientId, message) {
 }
 
 function sendReply(recipientId, replies) {
-
-   var reps = replies.map(
-    function(text) {
-        return       {
-                       "content_type":"text",
-                       "title":text,
-                       "payload":text
-                     }
-    }
-   )
-
-  "recipient":{
-    "id":recipientId
-  },
-  "message":{
-    "text":"Pick a color:",
-    "quick_replies":[
-      {
-        "content_type":"text",
-        "title":"Red",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+  var msg = {
+      "recipient":{
+        "id":recipientId
       },
-      {
-        "content_type":"text",
-        "title":"Green",
-        "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+      "message":{
+        "text":"Pick a color:",
+        "quick_replies":[
+          {
+            "content_type":"text",
+            "title":"Red",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
+          },
+          {
+            "content_type":"text",
+            "title":"Green",
+            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
+          }
+        ]
       }
-    ]
   }
+      console.log(JSON.stringify(template))
+
+      request({
+          url: "https://graph.facebook.com/v2.6/me/messages",
+          qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
+          method: "POST",
+          json: msg
+      }, function(error, response, body) {
+          if (error) {
+              console.log("Error sending message: " + response.error);
+          }
+      });
+
 }
 
 function sendTemplate(recipientId, message) {
