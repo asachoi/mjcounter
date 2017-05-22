@@ -79,17 +79,20 @@ function processMessage(event) {
                 var value=payload[1]
 
                 if(type == 'winner') {
+                    winner = value;
                     sendReply(senderId, ['Y', 'N'], 'self')
+
                 }
 
                 if(type == 'self') {
+                    self = value
                     sendReply(senderId, players, 'loser')
                 }
 
                 if(type == 'loser') {
-
+                    loser = value
+                    sendMessage(senderId, winner + ' ' + self + ' ' + loser)
                 }
-
             }
 
 
