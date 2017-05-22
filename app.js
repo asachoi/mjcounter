@@ -39,8 +39,8 @@ app.post("/webhook", function (req, res) {
     }
 
     console.log("ID:" + id)
-    console.log('req:' + req)
-    console.log('res:' + res)
+    console.log('req:' + JSON.stringify(req))
+    console.log('res:' + JSON.stringify(res))
 
     // Make sure this is a page subscription
     if (req.body.object == "page") {
