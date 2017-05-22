@@ -61,7 +61,7 @@ function processMessage(event) {
 
         //sendMessage(senderId, {text: "Welcome " + message.text + count});
         if(gameStart) {
-            sendReply(senderId, players)
+            sendReply(senderId, players, type)
         }
 
 
@@ -74,6 +74,24 @@ function processMessage(event) {
         if (message.text) {
             var formattedMsg = message.text.toLowerCase().trim();
             var command = formattedMsg.split(" ")[0];
+
+            if(message.quick_reply) {
+                var type=message.quick_reply.split('.')[0]
+                var value=message.quick_reply.split('.')[1]
+
+                if(type == 'winner') {
+
+                }
+
+                if(type == 'self') {
+
+                }
+
+                if(type == 'loser') {
+
+                }
+
+            }
 
 
             // If we receive a text message, check to see if it matches any special
@@ -132,13 +150,13 @@ function sendMessage(recipientId, message) {
     });
 }
 
-function sendReply(recipientId, replies) {
+function sendReply(recipientId, replies, type) {
 
   var reps = replies.map(function(text) {
     return           {
                        "content_type":"text",
                        "title":text,
-                       "payload":text
+                       "payload":type + '.' + text
                      }
   })
 
@@ -147,7 +165,7 @@ function sendReply(recipientId, replies) {
         "id":recipientId
       },
       "message":{
-        "text":"Pick a color:",
+        "text": type + ' is',
         "quick_replies":reps
       }
   }
