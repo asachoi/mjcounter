@@ -135,6 +135,7 @@ function processMessage(event) {
 var addGame = function(senderId) {
     games.push(game)
     sendMessage(senderId, {text: "Game Added"});
+    console.log(games);
 
 }
 
