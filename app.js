@@ -1,10 +1,9 @@
 var express = require("express");
 var request = require("request");
 var bodyParser = require("body-parser");
-var mongoose = require("mongoose");
 
 var db = mongoose.connect(process.env.MONGODB_URI);
-var Movie = require("./models/movie");
+
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
@@ -12,6 +11,8 @@ app.use(bodyParser.json());
 app.listen((process.env.PORT || 5000));
 
 var count = 0;
+var gameStart = false
+var players = [];
 
 // Server index page
 app.get("/", function (req, res) {
@@ -62,8 +63,11 @@ function processMessage(event) {
         count ++;
 
         //sendMessage(senderId, {text: "Welcome " + message.text + count});
+        if(gameStart) {
+            sendReply(senderId, players)
+        }
 
-        sendReply(senderId, ['1', '2', '3'])
+
 
         console.log("Received message from senderId: " + senderId);
         console.log("Message is: " + JSON.stringify(message));
@@ -79,16 +83,14 @@ function processMessage(event) {
             // keywords and send back the corresponding movie detail.
             // Otherwise search for new movie.
             switch (command) {
-                case "game":
+                case "start":
+                    gameStart = true;
                 case "players":
-                    sendReply(senderId, formattedMsg.split(" "))
-                case "runtime":
-                case "director":
-                case "cast":
-                case "rating":
-                    //getMovieDetail(senderId, formattedMsg);
-                    break;
-
+                    //sendReply(senderId, formattedMsg.split(" "))
+                    setPlayers(senderId)
+                case "result":
+                    showResult(senderId)
+                case "end":
                 default:
                     //findMovie(senderId, formattedMsg);
             }
@@ -96,6 +98,10 @@ function processMessage(event) {
             sendMessage(senderId, {text: "Sorry, I don't understand your request."});
         }
     }
+}
+
+function setPlayers = function(msg) {
+    players = ['aaa', 'bbb', 'ccccc']
 }
 
 
