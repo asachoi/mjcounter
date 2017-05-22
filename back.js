@@ -2,9 +2,12 @@ var express = require("express");
 var request = require("request");
 var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
+var botly = require("botly")
 
 var db = mongoose.connect(process.env.MONGODB_URI);
 var Movie = require("./models/movie");
+
+var id;
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
@@ -30,6 +33,14 @@ app.get("/webhook", function (req, res) {
 
 // All callbacks for Messenger will be POST-ed here
 app.post("/webhook", function (req, res) {
+    if(id == null) {
+        id = guid()
+    }
+
+    console.log("ID:" + id)
+    //console.log('req:' + JSON.stringify(req))
+    //console.log('res:' + JSON.stringify(res))
+
     // Make sure this is a page subscription
     if (req.body.object == "page") {
         // Iterate over each entry
@@ -56,6 +67,10 @@ function processPostback(event) {
     if (payload === "Greeting") {
         // Get user's first name from the User Profile API
         // and include it in the greeting
+
+        console.log("Received postback from senderId: " + senderId);
+        console.log("Message is: " + JSON.stringify(event));
+
         request({
             url: "https://graph.facebook.com/v2.6/" + senderId,
             qs: {
@@ -83,12 +98,13 @@ function processPostback(event) {
 }
 
 function processMessage(event) {
+
     if (!event.message.is_echo) {
         var message = event.message;
         var senderId = event.sender.id;
 
         console.log("Received message from senderId: " + senderId);
-        console.log("Message is: " + JSON.stringify(message));
+        console.log("Message is: " + JSON.stringify(event));
 
         // You may get a text or attachment but not both
         if (message.text) {
@@ -168,7 +184,7 @@ function findMovie(userId, movieTitle) {
                 sendMessage(userId, {text: movieObj.Error});
             }
         } else {
-            sendMessage(userId, {text: "Something went wrong. Try again."});
+            sendMessage(userId, {text: "Something went wrong. Try again!."});
         }
     });
 }
@@ -198,4 +214,15 @@ function sendMessage(recipientId, message) {
             console.log("Error sending message: " + response.error);
         }
     });
+}
+
+
+function guid() {
+  function s4() {
+    return Math.floor((1 + Math.random()) * 0x10000)
+      .toString(16)
+      .substring(1);
+  }
+  return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+    s4() + '-' + s4() + s4() + s4();
 }
