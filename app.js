@@ -87,6 +87,8 @@ function processMessage(event) {
         var message = event.message;
         var senderId = event.sender.id;
 
+        sendMessage(senderId, {text: "Welcome " + message.text});
+
         console.log("Received message from senderId: " + senderId);
         console.log("Message is: " + JSON.stringify(message));
 
