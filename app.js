@@ -151,7 +151,7 @@ function sendTemplate(recipientId, message) {
           "type":"template",
           "payload":{
             "template_type":"button",
-            "text":message,
+            "text": "Testing",
             "buttons":[
               {
                 "type":"web_url",
