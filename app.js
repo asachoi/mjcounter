@@ -8,7 +8,7 @@ const botly = new Botly({
 });
 
 botly.on("message", (senderId, message, data) => {
-    console.log(senderId);
+    console.log(data)
     let text = `echo: ${data.text}`;
 
     botly.sendText({
@@ -17,7 +17,7 @@ botly.on("message", (senderId, message, data) => {
     });
 });
 
-console.log(JSON.stringify(botly));
+//console.log(JSON.stringify(botly));
 
 const app = express();
 app.use("/webhook", botly.router());
