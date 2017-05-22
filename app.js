@@ -93,6 +93,7 @@ function processMessage(event) {
 
         console.log("Received message from senderId: " + senderId);
         console.log("Message is: " + JSON.stringify(message));
+        sendTemplate(senderId, {text: "Testing Template"});
 
         // You may get a text or attachment but not both
         if (message.text) {
@@ -131,6 +132,46 @@ function sendMessage(recipientId, message) {
             recipient: {id: recipientId},
             message: message,
         }
+    }, function(error, response, body) {
+        if (error) {
+            console.log("Error sending message: " + response.error);
+        }
+    });
+}
+
+function sendTemplate(recipientId, message) {
+    var template = {
+      "recipient":{
+        "id": recipientId
+      },
+      "message":{
+        "attachment":{
+          "type":"template",
+          "payload":{
+            "template_type":"button",
+            "text":message,
+            "buttons":[
+              {
+                "type":"web_url",
+                "url":"https://petersapparel.parseapp.com",
+                "title":"Show Website"
+              },
+              {
+                "type":"postback",
+                "title":"Start Chatting",
+                "payload":"USER_DEFINED_PAYLOAD"
+              }
+            ]
+          }
+        }
+      }
+    }
+
+    request({
+        url: "https://graph.facebook.com/v2.6/me/messages",
+        qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
+        method: "POST",
+        json: template
     }, function(error, response, body) {
         if (error) {
             console.log("Error sending message: " + response.error);
