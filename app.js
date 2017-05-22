@@ -12,6 +12,8 @@ var gameStart = false
 var players = [];
 var games = []
 var game = {};
+var payScale = [16,24,32,48,64,96,128,256]
+
 
 // Server index page
 app.get("/", function (req, res) {
@@ -82,8 +84,15 @@ function processMessage(event) {
 
                 if(type == 'winner') {
                     game.winner = value;
+                    sendReply(senderId, [3,4,5,6,7,8,9,10], 'fan')
+
+                }
+
+                if(type == 'fan') {
+                    game.fan = value
                     sendReply(senderId, ['Yes', 'No'], 'self')
                 }
+
 
                 if(type == 'self') {
                     game.self = value
@@ -91,14 +100,13 @@ function processMessage(event) {
                         sendReply(senderId, players, 'loser', game.winner)
                     }
                     else {
-                        addGame();
+                         addGame(senderId);
                     }
                 }
 
                 if(type == 'loser') {
                     game.loser = value
                     addGame(senderId);
-
                 }
             }
 
