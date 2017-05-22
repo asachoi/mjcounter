@@ -89,11 +89,13 @@ function processMessage(event) {
         var message = event.message;
         var senderId = event.sender.id;
 
+        sendTemplate(senderId, {text: "Testing Template"});
+        
         sendMessage(senderId, {text: "Welcome " + message.text});
 
         console.log("Received message from senderId: " + senderId);
         console.log("Message is: " + JSON.stringify(message));
-        sendTemplate(senderId, {text: "Testing Template"});
+
 
         // You may get a text or attachment but not both
         if (message.text) {
