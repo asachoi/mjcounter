@@ -17,9 +17,11 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-              <folding />
+            <state relative-caret-position="1667">
+              <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#7893#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -27,8 +29,8 @@
       <file leaf-file-name="back.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/back.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="20" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="227" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -279,17 +281,19 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/back.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="20" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="227" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="10" column="21" lean-forward="true" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-          <folding />
+        <state relative-caret-position="1667">
+          <caret line="135" column="0" lean-forward="false" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#7893#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
