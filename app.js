@@ -93,7 +93,7 @@ function processMessage(event) {
 
                 if(type == 'loser') {
                     game.loser = value
-                    sendMessage(senderId, JSON.stringify(game))
+                    sendMessage(senderId,  JSON.stringify(game))
                 }
             }
 
@@ -115,6 +115,7 @@ function processMessage(event) {
                     showResult(senderId)
                     break
                 case "log":
+                    game = {winner:'', self:'', loser: ''}
                     sendReply(senderId, players, 'winner')
                     break;
                 default:
