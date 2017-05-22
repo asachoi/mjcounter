@@ -76,8 +76,8 @@ function processMessage(event) {
             var command = formattedMsg.split(" ")[0];
 
             if(message.quick_reply) {
-                var type=message.quick_reply.split('.')[0]
-                var value=message.quick_reply.split('.')[1]
+                var type=message.quick_reply.playload.split('.')[0]
+                var value=message.quick_reply.playload.split('.')[1]
 
                 if(type == 'winner') {
                     sendReply(senderId, ['Y', 'N'], 'self')
