@@ -78,7 +78,7 @@ function processMessage(event) {
             // If we receive a text message, check to see if it matches any special
             // keywords and send back the corresponding movie detail.
             // Otherwise search for new movie.
-            switch (formattedMsg) {
+            switch (command) {
                 case "game":
                 case "players":
                     sendReply(senderId, formattedMsg.split(" "))
