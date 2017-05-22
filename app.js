@@ -61,7 +61,7 @@ function processMessage(event) {
 
         //sendMessage(senderId, {text: "Welcome " + message.text + count});
         if(gameStart) {
-            sendReply(senderId, players, type)
+            sendReply(senderId, players, 'winner')
         }
 
 
@@ -80,11 +80,11 @@ function processMessage(event) {
                 var value=message.quick_reply.split('.')[1]
 
                 if(type == 'winner') {
-
+                    sendReply(senderId, ['Y', 'N'], 'self')
                 }
 
                 if(type == 'self') {
-
+                    sendReply(senderId, players, 'loser')
                 }
 
                 if(type == 'loser') {
