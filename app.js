@@ -97,6 +97,8 @@ function processMessage(event) {
 
         sendMessage(senderId, {text: "Welcome " + message.text + count});
 
+        sendReply(senderId, ["1", '2', '3'])
+
         console.log("Received message from senderId: " + senderId);
         console.log("Message is: " + JSON.stringify(message));
 
@@ -143,6 +145,27 @@ function sendMessage(recipientId, message) {
             console.log("Error sending message: " + response.error);
         }
     });
+}
+
+function sendReply(recipientId, replies) {
+
+   var reps = replies.map(
+    function(text) {
+        return       {
+                       "content_type":"text",
+                       "title":text,
+                       "payload":text
+                     }
+    }
+   )
+
+  "recipient":{
+    "id":recipientId
+  },
+  "message":{
+    "text":"Pick a color:",
+    "quick_replies":reps
+  }
 }
 
 function sendTemplate(recipientId, message) {
