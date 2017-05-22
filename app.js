@@ -148,24 +148,22 @@ function sendMessage(recipientId, message) {
 }
 
 function sendReply(recipientId, replies) {
+
+  var reps = replies.map(function(text) {
+    return           {
+                       "content_type":"text",
+                       "title":text,
+                       "payload":text
+                     }
+  })
+
   var msg = {
       "recipient":{
         "id":recipientId
       },
       "message":{
         "text":"Pick a color:",
-        "quick_replies":[
-          {
-            "content_type":"text",
-            "title":"Red",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_RED"
-          },
-          {
-            "content_type":"text",
-            "title":"Green",
-            "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_GREEN"
-          }
-        ]
+        "quick_replies":reps
       }
   }
 
