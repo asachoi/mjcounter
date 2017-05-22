@@ -75,10 +75,10 @@ function processMessage(event) {
             var formattedMsg = message.text.toLowerCase().trim();
             var command = formattedMsg.split(" ")[0];
 
-            if(message.quick_reply) {
-                var playload = message.quick_reply.playload.split(".");
-                var type=playload[0]
-                var value=playload[1]
+            if(message.quick_reply.payload) {
+                var payload = message.quick_reply.payload.split(".");
+                var type=payload[0]
+                var value=payload[1]
 
                 if(type == 'winner') {
                     sendReply(senderId, ['Y', 'N'], 'self')
