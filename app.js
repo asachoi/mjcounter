@@ -100,7 +100,7 @@ function processMessage(event) {
     }
 }
 
-function setPlayers = function(msg) {
+var setPlayers = function(msg) {
     players = ['aaa', 'bbb', 'ccccc']
 }
 
