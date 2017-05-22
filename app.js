@@ -82,13 +82,12 @@ function processMessage(event) {
 
                 if(type == 'winner') {
                     game.winner = value;
-
                     sendReply(senderId, ['Yes', 'No'], 'self')
                 }
 
                 if(type == 'self') {
                     game.self = value
-                    sendReply(senderId, players, 'loser')
+                    sendReply(senderId, players, 'loser', game.winner)
                 }
 
                 if(type == 'loser') {
@@ -160,14 +159,16 @@ function sendMessage(recipientId, message) {
     });
 }
 
-function sendReply(recipientId, replies, type) {
+function sendReply(recipientId, replies, type, except) {
 
   var reps = replies.map(function(text) {
-    return           {
-                       "content_type":"text",
-                       "title":text,
-                       "payload":type + '.' + text
-                     }
+    if(text!=except) {
+        return    {
+                           "content_type":"text",
+                           "title":text,
+                           "payload":type + '.' + text
+                  }
+     }
   })
 
   var msg = {
@@ -175,7 +176,7 @@ function sendReply(recipientId, replies, type) {
         "id":recipientId
       },
       "message":{
-        "text": type + ' is',
+        "text": type,
         "quick_replies":reps
       }
   }
