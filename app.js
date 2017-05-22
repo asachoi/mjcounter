@@ -104,11 +104,10 @@ var setPlayers = function(msg) {
     players = [];
     msg.split(" ").forEach(function(player)
         {
-            if(player != 'player')
+            if(player != 'players')
                 players.push(player)
         }
     )
-
     //players = ['aaa', 'bbb', 'ccccc']
 }
 
