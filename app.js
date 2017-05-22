@@ -101,7 +101,15 @@ function processMessage(event) {
 }
 
 var setPlayers = function(msg) {
-    players = ['aaa', 'bbb', 'ccccc']
+    players = [];
+    msg.split(" ").forEach(function(player)
+        {
+            if(player != 'player')
+                players.push(player)
+        }
+    )
+
+    //players = ['aaa', 'bbb', 'ccccc']
 }
 
 var showResult = function(id) {
