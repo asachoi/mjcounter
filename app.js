@@ -9,10 +9,11 @@ app.listen((process.env.PORT || 5000));
 
 var count = 0;
 var gameStart = false
-var players = [];
+var players = ['a','b','c', 'd'];
 var games = []
 var game = {};
 var payScale = [16,24,32,48,64,96,128,256]
+var results[];
 
 
 // Server index page
@@ -58,18 +59,6 @@ function processMessage(event) {
     if (!event.message.is_echo) {
         var message = event.message;
         var senderId = event.sender.id;
-
-        //sendTemplate(senderId, {text: "Testing Template"});
-
-        count ++;
-
-        //sendMessage(senderId, {text: "Welcome " + message.text + count});
-
-
-
-
-        console.log("Received message from senderId: " + senderId);
-        console.log("Message is: " + JSON.stringify(message));
 
 
         // You may get a text or attachment but not both
@@ -159,6 +148,68 @@ var setPlayers = function(msg) {
 }
 
 var showResult = function(id) {
+
+    var results = [];
+
+    players.forEach(function(p)
+        {
+            results.push(
+              {
+                name:p,
+                balance: 0
+
+              }
+            )
+        }
+    )
+
+
+
+    games.forEach(
+        function(game) {
+            var pay = payScale[game.fan - 3];
+            if(game.self == 'Yes') {
+                pay = pay / 2
+                results
+                    .filter(function(x) {
+                        x.name == game.winner
+                    })
+                    .forEach(function(item) {
+                        item.balance += pay * 3;
+                    }
+                )
+
+                results
+                    .filter(function(x) {
+                        x.name != game.winner
+                    })
+                    .forEach(function(item) {
+                        item.balance -= pay;
+                    }
+                )
+            }
+            else {
+                results
+                    .filter(function(x) {
+                        x.name == game.winner
+                    })
+                    .forEach(function(item) {
+                        item.balance += pay;
+                    }
+                )
+
+                results
+                    .filter(function(x) {
+                        x.name == game.loser
+                    })
+                    .forEach(function(item) {
+                        item.balance -= pay;
+                    }
+                )
+            }
+        }
+    );
+
 }
 
 
