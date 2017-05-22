@@ -161,14 +161,16 @@ function sendMessage(recipientId, message) {
 
 function sendReply(recipientId, replies, type, except) {
 
-  var reps = replies.map(function(text) {
-    if(text!=except) {
+  var reps = replies
+  .filter(function(text) {
+        return text!=except
+  })
+  .map(function(text) {
         return    {
-                           "content_type":"text",
-                           "title":text,
-                           "payload":type + '.' + text
-                  }
-     }
+               "content_type":"text",
+               "title":text,
+               "payload":type + '.' + text
+        }
   })
 
   var msg = {
