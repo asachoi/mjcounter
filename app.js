@@ -10,6 +10,8 @@ app.listen((process.env.PORT || 5000));
 var count = 0;
 var gameStart = false
 var players = [];
+var games = []
+var game = {};
 
 // Server index page
 app.get("/", function (req, res) {
@@ -79,19 +81,19 @@ function processMessage(event) {
                 var value=payload[1]
 
                 if(type == 'winner') {
-                    winner = value;
-                    sendReply(senderId, ['Y', 'N'], 'self')
+                    game.winner = value;
 
+                    sendReply(senderId, ['Yes', 'No'], 'self')
                 }
 
                 if(type == 'self') {
-                    self = value
+                    game.self = value
                     sendReply(senderId, players, 'loser')
                 }
 
                 if(type == 'loser') {
-                    loser = value
-                    sendMessage(senderId, winner + ' ' + self + ' ' + loser)
+                    game.loser = value
+                    sendMessage(senderId, JSON.stringify(game))
                 }
             }
 
