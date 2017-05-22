@@ -17,6 +17,8 @@ botly.on("message", (senderId, message, data) => {
     });
 });
 
+console.log(JSON.stringify(botly));
+
 const app = express();
 app.use("/webhook", botly.router());
 app.listen((process.env.PORT || 5000));
