@@ -82,11 +82,14 @@ function processMessage(event) {
             switch (command) {
                 case "start":
                     gameStart = true;
+                    break
                 case "players":
                     //sendReply(senderId, formattedMsg.split(" "))
                     setPlayers(senderId)
+                    break
                 case "result":
                     showResult(senderId)
+                    break
                 case "end":
                 default:
                     //findMovie(senderId, formattedMsg);
@@ -99,6 +102,9 @@ function processMessage(event) {
 
 var setPlayers = function(msg) {
     players = ['aaa', 'bbb', 'ccccc']
+}
+
+var showResult = function(id) {
 }
 
 

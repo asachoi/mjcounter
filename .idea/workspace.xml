@@ -17,10 +17,10 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+            <state relative-caret-position="668">
+              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
               <folding>
-                <element signature="e#0#5245#0" expanded="false" />
+                <element signature="e#0#5358#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -45,6 +45,7 @@
       <find>forbi</find>
       <find>mongoose</find>
       <find>process.en</find>
+      <find>showre</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -289,10 +290,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+        <state relative-caret-position="668">
+          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
           <folding>
-            <element signature="e#0#5245#0" expanded="false" />
+            <element signature="e#0#5358#0" expanded="false" />
           </folding>
         </state>
       </provider>
