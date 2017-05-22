@@ -91,13 +91,13 @@ function processMessage(event) {
         var message = event.message;
         var senderId = event.sender.id;
 
-        sendTemplate(senderId, {text: "Testing Template"});
+        //sendTemplate(senderId, {text: "Testing Template"});
 
         count ++;
 
-        sendMessage(senderId, {text: "Welcome " + message.text + count});
+        //sendMessage(senderId, {text: "Welcome " + message.text + count});
 
-        sendReply(senderId, ["1", '2', '3'])
+        sendReply(senderId, ['1', '2', '3'])
 
         console.log("Received message from senderId: " + senderId);
         console.log("Message is: " + JSON.stringify(message));
@@ -168,7 +168,7 @@ function sendReply(recipientId, replies) {
         ]
       }
   }
-      
+
   request({
       url: "https://graph.facebook.com/v2.6/me/messages",
       qs: {access_token: process.env.PAGE_ACCESS_TOKEN},
