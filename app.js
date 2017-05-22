@@ -85,7 +85,7 @@ function processMessage(event) {
                     break
                 case "players":
                     //sendReply(senderId, formattedMsg.split(" "))
-                    setPlayers(senderId)
+                    setPlayers(formattedMsg)
                     break
                 case "result":
                     showResult(senderId)
