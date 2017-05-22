@@ -2,9 +2,6 @@ var express = require("express");
 var request = require("request");
 var bodyParser = require("body-parser");
 
-var db = mongoose.connect(process.env.MONGODB_URI);
-
-
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
