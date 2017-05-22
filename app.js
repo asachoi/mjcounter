@@ -87,13 +87,18 @@ function processMessage(event) {
 
                 if(type == 'self') {
                     game.self = value
-                    sendReply(senderId, players, 'loser', game.winner)
+                    if(game.self == 'No') {
+                        sendReply(senderId, players, 'loser', game.winner)
+                    }
+                    else {
+                        addGame();
+                    }
                 }
 
                 if(type == 'loser') {
                     game.loser = value
-                    console.log(JSON.stringify(game))
-                    sendMessage(senderId,  JSON.stringify(game))
+                    addGame(senderId);
+
                 }
             }
 
@@ -125,6 +130,12 @@ function processMessage(event) {
             sendMessage(senderId, {text: "Sorry, I don't understand your request."});
         }
     }
+}
+
+var addGame = function(senderId) {
+    games.push(game)
+    sendMessage(senderId, {text: "Game Added"});
+
 }
 
 var setPlayers = function(msg) {
