@@ -8,6 +8,7 @@ const botly = new Botly({
 });
 
 botly.on("message", (senderId, message, data) => {
+    console.log(senderId);
     let text = `echo: ${data.text}`;
 
     botly.sendText({
