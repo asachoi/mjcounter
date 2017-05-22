@@ -75,7 +75,7 @@ function processMessage(event) {
             var formattedMsg = message.text.toLowerCase().trim();
             var command = formattedMsg.split(" ")[0];
 
-            if(message.quick_reply.payload) {
+            if(message.quick_reply && message.quick_reply.payload) {
                 var payload = message.quick_reply.payload.split(".");
                 var type=payload[0]
                 var value=payload[1]
