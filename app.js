@@ -75,7 +75,17 @@ function processMessage(event) {
                 break
                 case 'fan':
                 game.fan = value;
-                sendReply(senderId,calObj.players , "loser", game.winner)
+                if(game.self=='Yes')  {
+                    calObj.addGame(game)
+                }
+                else {
+                    sendReply(senderId,calObj.players , "loser", game.winner)
+                }
+                break
+                case 'loser':
+                game.loser = value;
+                calObj.addGame(game);
+                //sendReply(senderId,calObj.players , "loser", game.winner)
                 break
             }
             console.log(game)
@@ -102,6 +112,7 @@ function processMessage(event) {
                     calObj.setPayScales([16,32,48,64,92,128,192,256])
                     break
                 case 'log':
+                    game = {}
                     sendReply(senderId, calObj.players, "winner")
                     break
             }
