@@ -58,7 +58,7 @@ function processMessage(event) {
 
         switch(command) {
             case 'players': {
-                command.shift()
+                message.text.split(' ').shift()
                 calObj.setPlayers(command)
                 console.log(calObj.players)
                 sendMessage(senderId, {'Text': 'Player Set'})
