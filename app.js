@@ -71,14 +71,16 @@ function processMessage(event) {
                     break
                 case 'init':
                     calObj.games = [];
+                    calObj.setPayScales([16,32,48,64,92,128,192,256])
                     break
-
-
+                case 'log':
+                    sendReply(senderId, calObj.players, "winner")
+                    break
             }
         }
 
-      calObj.setPlayers(['A', 'B', 'C', 'D'])
-      calObj.setPayScales([16,32,48,64,92,128,192,256])
+//      calObj.setPlayers(['A', 'B', 'C', 'D'])
+
 
       calObj.addGame({
         winner: 'A',
