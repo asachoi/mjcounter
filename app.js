@@ -115,27 +115,19 @@ function processMessage(event) {
                     game = {}
                     sendReply(senderId, calObj.players, "winner")
                     break
+                case 'sum':
+                    calObj.calculate()
+                    console.log(calObj.results)
+                    break
             }
         }
 
 //      calObj.setPlayers(['A', 'B', 'C', 'D'])
 
 
-      calObj.addGame({
-        winner: 'A',
-        loser: 'B',
-        self: 'No',
-        fan: 5
-      })
 
-      calObj.addGame({
-        winner: 'B',
-        //loser: 'C',
-        self: 'Yes',
-        fan: 6
-      })
-      calObj.calculate()
-      console.log(calObj.results)
+
+
 
 
 
