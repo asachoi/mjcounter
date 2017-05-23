@@ -77,14 +77,16 @@ function processMessage(event) {
                 game.fan = value;
                 if(game.self=='Yes')  {
                     calObj.addGame(game)
+                    sum();
                 }
                 else {
                     sendReply(senderId,calObj.players , "loser", game.winner)
                 }
                 break
                 case 'loser':
-                game.loser = value;
-                calObj.addGame(game);
+                    game.loser = value;
+                    calObj.addGame(game);
+                    sum();
                 //sendReply(senderId,calObj.players , "loser", game.winner)
                 break
             }
@@ -110,31 +112,27 @@ function processMessage(event) {
                 case 'init':
                     calObj.games = [];
                     calObj.setPayScales([16,32,48,64,92,128,192,256])
+                    sum()
                     break
                 case 'log':
                     game = {}
                     sendReply(senderId, calObj.players, "winner")
                     break
                 case 'sum':
-                    calObj.calculate()
-                    var result = ''
-                    calObj.results.forEach(x => result += (x.name + ": " + x.balance ))
-                    sendMessage(senderId, {text: result});
+                    sum()
 
                     break
             }
         }
 
-//      calObj.setPlayers(['A', 'B', 'C', 'D'])
-
-
-
-
-
-
-
-
     }
+}
+
+var sum = function() {
+                    calObj.calculate()
+                    var result = ''
+                    calObj.results.forEach(x => result += (x.name + ": " + x.balance + "\n"))
+                    sendMessage(senderId, {text: result});
 }
 
 
