@@ -1,7 +1,7 @@
 var express = require("express");
 var request = require("request");
 var bodyParser = require("body-parser");
-var calObj = require("calObj");
+var calObj = require("calObj.js");
 
 
 var app = express();
@@ -54,7 +54,7 @@ function processMessage(event) {
         var senderId = event.sender.id;
 
 
-   
+
   //calObj2 = new calObj()
       calObj.setPlayers(['A', 'B', 'C', 'D'])
       calObj.setPayScales([16,32,48,64,92,128,192,256])

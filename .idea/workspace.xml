@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="91cddd8b-8c93-4814-ae12-9e4a78897b69" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/calObj.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +17,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="56" column="3" lean-forward="true" selection-start-line="56" selection-start-column="3" selection-end-line="56" selection-end-column="3" />
+            <state relative-caret-position="54">
+              <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
               <folding>
                 <element signature="e#0#4231#0" expanded="false" />
                 <element signature="e#0#4231#0" expanded="false" />
@@ -489,8 +487,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="56" column="3" lean-forward="true" selection-start-line="56" selection-start-column="3" selection-end-line="56" selection-end-column="3" />
+        <state relative-caret-position="54">
+          <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
           <folding>
             <element signature="e#0#4231#0" expanded="false" />
             <element signature="e#0#4231#0" expanded="false" />
