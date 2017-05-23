@@ -54,8 +54,11 @@ function processMessage(event) {
         var senderId = event.sender.id;
         var text = message.text
 
-        sendMessage(senderId, {text: "Welcome"});
-        if(text) {
+
+        if(!text) {
+            sendMessage(senderId, {text: "Welcome"});
+        }
+        else {
 
             var commands = text.split(' ')
 
@@ -65,7 +68,13 @@ function processMessage(event) {
                     calObj.setPlayers(commands)
                     console.log(calObj.players)
                     sendMessage(senderId, {'Text': 'Player Set'})
+                    break
+                },
+                case 'init': {
+                    calObj.games = [];
+                    break
                 }
+
 
             }
         }
