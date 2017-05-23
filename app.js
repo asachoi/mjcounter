@@ -59,8 +59,8 @@ function processMessage(event) {
     if (!event.message.is_echo) {
         var message = event.message;
         var senderId = event.sender.id;
+        sendMessage(senderId, {text: "Welcome"});
 
-        console.log(message);
         // You may get a text or attachment but not both
         if (message.text) {
             var formattedMsg = message.text.toLowerCase().trim();
