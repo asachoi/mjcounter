@@ -54,6 +54,7 @@ function processMessage(event) {
         var senderId = event.sender.id;
         var text = message.text
 
+        sendMessage(userId, {text: "Welcome"});
         if(text) {
 
             var commands = text.split(' ')
