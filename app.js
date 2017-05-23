@@ -50,7 +50,7 @@ function processMessage(event) {
     if (!event.message.is_echo) {
         var message = event.message;
         var senderId = event.sender.id;
-        console.debug(message);
+        console.log(message);
         sendMessage(senderId, {text: "Welcome"});
 
     }
