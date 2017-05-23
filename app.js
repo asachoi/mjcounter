@@ -162,6 +162,7 @@ var showResult = function(id) {
             )
         }
     )
+    
 
     games.forEach(
         function(game) {
