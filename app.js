@@ -54,17 +54,19 @@ function processMessage(event) {
         var senderId = event.sender.id;
         var text = message.text
 
-        console.log(message);
-        var commands = text.split(' ')
+        if(text) {
 
-        switch(commands[0].toLowerCase()) {
-            case 'players': {
-                commands.shift()
-                calObj.setPlayers(commands)
-                console.log(calObj.players)
-                sendMessage(senderId, {'Text': 'Player Set'})
+            var commands = text.split(' ')
+
+            switch(commands[0].toLowerCase()) {
+                case 'players': {
+                    commands.shift()
+                    calObj.setPlayers(commands)
+                    console.log(calObj.players)
+                    sendMessage(senderId, {'Text': 'Player Set'})
+                }
+
             }
-
         }
 
       calObj.setPlayers(['A', 'B', 'C', 'D'])
