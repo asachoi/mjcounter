@@ -63,17 +63,15 @@ function processMessage(event) {
             var commands = text.split(' ')
 
             switch(commands[0].toLowerCase()) {
-                case 'players': {
+                case 'players':
                     commands.shift()
                     calObj.setPlayers(commands)
                     console.log(calObj.players)
                     sendMessage(senderId, {'Text': 'Player Set'})
                     break
-                },
-                case 'init': {
+                case 'init':
                     calObj.games = [];
                     break
-                }
 
 
             }
