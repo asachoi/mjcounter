@@ -118,7 +118,7 @@ function processMessage(event) {
                 case 'sum':
                     calObj.calculate()
                     var result = ''
-                    calObj.forEach(x => result += (x.name + ": " + x.balance ))
+                    calObj.results.forEach(x => result += (x.name + ": " + x.balance ))
                     sendMessage(senderId, {text: result});
 
                     break
