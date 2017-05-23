@@ -1,4 +1,4 @@
-  var calObj = {
+var calObj = {
     games: [],
     payScales: [],
     players: [],
