@@ -13,7 +13,7 @@ var players = ['a','b','c', 'd'];
 var games = []
 var game = {};
 var payScale = [16,24,32,48,64,96,128,256]
-var results[];
+
 
 
 // Server index page
@@ -163,53 +163,55 @@ var showResult = function(id) {
         }
     )
 
-
-
     games.forEach(
         function(game) {
             var pay = payScale[game.fan - 3];
+
             if(game.self == 'Yes') {
-                pay = pay / 2
                 results
                     .filter(function(x) {
-                        x.name == game.winner
+                       return  x.name == game.winner
                     })
                     .forEach(function(item) {
-                        item.balance += pay * 3;
+                        item.balance += pay * 1.5;
+
                     }
                 )
 
                 results
                     .filter(function(x) {
-                        x.name != game.winner
+                       return  x.name != game.winner
                     })
                     .forEach(function(item) {
-                        item.balance -= pay;
+                        item.balance -= pay * 0.5;
                     }
                 )
             }
             else {
                 results
                     .filter(function(x) {
-                        x.name == game.winner
+                        return x.name == game.winner
                     })
                     .forEach(function(item) {
                         item.balance += pay;
+                        console.debug(item.balance)
                     }
                 )
 
                 results
                     .filter(function(x) {
-                        x.name == game.loser
+                       return  x.name == game.loser
                     })
                     .forEach(function(item) {
                         item.balance -= pay;
+                        console.debug(item.balance)
                     }
                 )
             }
         }
     );
 
+    return results
 }
 
 
