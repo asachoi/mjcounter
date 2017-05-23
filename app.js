@@ -150,7 +150,7 @@ var setPlayers = function(msg) {
 var showResult = function(id) {
 
     var results = [];
-
+/*
     players.forEach(function(p)
         {
             results.push(
@@ -162,7 +162,7 @@ var showResult = function(id) {
             )
         }
     )
-/*
+
 
     games.forEach(
         function(game) {

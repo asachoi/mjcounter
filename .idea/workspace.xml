@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="91cddd8b-8c93-4814-ae12-9e4a78897b69" name="Default" comment="" />
+    <list default="true" id="91cddd8b-8c93-4814-ae12-9e4a78897b69" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +17,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="468">
-              <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="49" />
+            <state relative-caret-position="-639">
+              <caret line="152" column="2" lean-forward="false" selection-start-line="152" selection-start-column="2" selection-end-line="152" selection-end-column="2" />
               <folding>
                 <element signature="e#0#8267#0" expanded="false" />
               </folding>
@@ -44,6 +46,7 @@
       <find>mongoose</find>
       <find>process.en</find>
       <find>showre</find>
+      <find>forEa</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -441,8 +444,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="468">
-          <caret line="26" column="49" lean-forward="false" selection-start-line="26" selection-start-column="43" selection-end-line="26" selection-end-column="49" />
+        <state relative-caret-position="-639">
+          <caret line="152" column="2" lean-forward="false" selection-start-line="152" selection-start-column="2" selection-end-line="152" selection-end-column="2" />
           <folding>
             <element signature="e#0#8267#0" expanded="false" />
           </folding>
