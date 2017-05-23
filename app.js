@@ -54,6 +54,7 @@ function processMessage(event) {
         var senderId = event.sender.id;
         var text = message.text
 
+        console.log(message)
 
         if(!text) {
             sendMessage(senderId, {text: "Welcome"});
