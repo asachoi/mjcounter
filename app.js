@@ -1,6 +1,8 @@
 var express = require("express");
 var request = require("request");
 var bodyParser = require("body-parser");
+var calObj = require("calObj");
+
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: false}));
@@ -50,8 +52,28 @@ function processMessage(event) {
     if (!event.message.is_echo) {
         var message = event.message;
         var senderId = event.sender.id;
-        console.log(message);
-        sendMessage(senderId, {text: "Welcome"});
+
+
+   
+  //calObj2 = new calObj()
+      calObj.setPlayers(['A', 'B', 'C', 'D'])
+      calObj.setPayScales([16,32,48,64,92,128,192,256])
+      calObj.addGame({
+        winner: 'A',
+        loser: 'B',
+        self: 'No',
+        fan: 5
+      })
+      calObj.addGame({
+        winner: 'B',
+        //loser: 'C',
+        self: 'Yes',
+        fan: 6
+      })
+      calObj.calculate()
+      console.log(calObj.results)
+
+
 
     }
 }
