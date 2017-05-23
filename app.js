@@ -5,6 +5,8 @@ var calObj = require("./calObj");
 
 
 var app = express();
+var game = {};
+
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.listen((process.env.PORT || 5000));
@@ -54,7 +56,30 @@ function processMessage(event) {
         var senderId = event.sender.id;
         var text = message.text
 
+
         console.log(message)
+
+        if(message.quick_reply) {
+            var payload = message.quick_reply.payload
+            var type = payload.split('.')[0]
+            var value = payload.split('.')[1]
+
+            switch(type) {
+                case 'winner':
+                game.winner = value;
+                sendReply(senderId, ['Yes', 'No'], "self")
+                break
+                case 'self':
+                game.self = value;
+                sendReply(senderId, [3,4,5,6,7,8,9,10], "fan")
+                break
+                case 'fan':
+                game.fan = value;
+                sendReply(senderId,calObj.players , "loser", game.winner)
+                break
+            }
+            console.log(game)
+        }
 
         if(!text) {
             sendMessage(senderId, {text: "Welcome"});
@@ -63,12 +88,14 @@ function processMessage(event) {
 
             var commands = text.split(' ')
 
+
+
             switch(commands[0].toLowerCase()) {
                 case 'players':
                     commands.shift()
                     calObj.setPlayers(commands)
                     console.log(calObj.players)
-                    sendMessage(senderId, {'Text': 'Player Set'})
+                    sendMessage(senderId, {text: 'Player Set'})
                     break
                 case 'init':
                     calObj.games = [];
