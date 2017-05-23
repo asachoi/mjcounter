@@ -50,12 +50,5 @@
     }
   }
 
-  var game = {
-    winner:'',
-    loser: '',
-    self: '',
-    fan: 0
-  }
-
 
 module.exports = calObj;
