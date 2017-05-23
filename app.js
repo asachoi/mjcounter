@@ -1,7 +1,7 @@
 var express = require("express");
 var request = require("request");
 var bodyParser = require("body-parser");
-var calObj = require("calObj.js");
+var calObj = require("calObj");
 
 
 var app = express();
