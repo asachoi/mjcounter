@@ -53,17 +53,28 @@ function processMessage(event) {
         var message = event.message;
         var senderId = event.sender.id;
 
+        var command = event.message.split(' ')[0].toLowerCase();
 
+        switch(command) {
+            case 'players': {
+                command.shift()
+                calObj.setPlayers(command)
+                console.log(calObj.players)
+                sendMessage(senderId, {'Text': 'Player Set'})
+            }
 
-  //calObj2 = new calObj()
+        }
+
       calObj.setPlayers(['A', 'B', 'C', 'D'])
       calObj.setPayScales([16,32,48,64,92,128,192,256])
+
       calObj.addGame({
         winner: 'A',
         loser: 'B',
         self: 'No',
         fan: 5
       })
+
       calObj.addGame({
         winner: 'B',
         //loser: 'C',
