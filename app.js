@@ -162,7 +162,7 @@ var showResult = function(id) {
             )
         }
     )
-    
+/*
 
     games.forEach(
         function(game) {
@@ -211,7 +211,7 @@ var showResult = function(id) {
             }
         }
     );
-
+*/
     return results
 }
 
