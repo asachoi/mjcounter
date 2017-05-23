@@ -7,15 +7,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.listen((process.env.PORT || 5000));
 
-var count = 0;
-var gameStart = false
-var players = ['a','b','c', 'd'];
-var games = []
-var game = {};
-var payScale = [16,24,32,48,64,96,128,256]
-
-
-
 // Server index page
 app.get("/", function (req, res) {
     res.send("Deployed!");
@@ -59,6 +50,7 @@ function processMessage(event) {
     if (!event.message.is_echo) {
         var message = event.message;
         var senderId = event.sender.id;
+        console.debug(message);
         sendMessage(senderId, {text: "Welcome"});
 
     }
