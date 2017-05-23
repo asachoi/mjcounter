@@ -56,3 +56,6 @@
     self: '',
     fan: 0
   }
+
+
+module.exports = calObj;
