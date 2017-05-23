@@ -52,14 +52,15 @@ function processMessage(event) {
     if (!event.message.is_echo) {
         var message = event.message;
         var senderId = event.sender.id;
+        var text = message.text
 
         console.log(message);
-        var command = message.text.split(' ')[0].toLowerCase();
+        var commands = text.split(' ')
 
-        switch(command) {
+        switch(commands[0].toLowerCase()) {
             case 'players': {
-                message.text.split(' ').shift()
-                calObj.setPlayers(command)
+                commands.shift()
+                calObj.setPlayers(commands)
                 console.log(calObj.players)
                 sendMessage(senderId, {'Text': 'Player Set'})
             }
