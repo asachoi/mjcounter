@@ -54,7 +54,7 @@ function processMessage(event) {
         var senderId = event.sender.id;
 
         console.log(message);
-        var command = message.split(' ')[0].toLowerCase();
+        var command = message.text.split(' ')[0].toLowerCase();
 
         switch(command) {
             case 'players': {
