@@ -94,7 +94,7 @@ function processMessage(event) {
         }
 
         if(!text) {
-            sendMessage(senderId, {text: "Welcome"});
+            sendMessage(senderId, {text: "start, log, sum"});
         }
         else {
 
@@ -103,16 +103,13 @@ function processMessage(event) {
 
 
             switch(commands[0].toLowerCase()) {
-                case 'players':
+                case 'start':
+                    calObj.games = [];
+                    calObj.setPayScales([16,32,48,64,92,128,192,256])
                     commands.shift()
                     calObj.setPlayers(commands)
                     console.log(calObj.players)
-                    sendMessage(senderId, {text: 'Player Set'})
-                    break
-                case 'init':
-                    calObj.games = [];
-                    calObj.setPayScales([16,32,48,64,92,128,192,256])
-                    sum()
+                    sum(senderId)
                     break
                 case 'log':
                     game = {}
