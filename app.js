@@ -60,7 +60,7 @@ function processMessage(event) {
         var message = event.message;
         var senderId = event.sender.id;
 
-
+        console.log(message);
         // You may get a text or attachment but not both
         if (message.text) {
             var formattedMsg = message.text.toLowerCase().trim();
